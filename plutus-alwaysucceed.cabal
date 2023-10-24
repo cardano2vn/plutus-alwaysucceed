@@ -1,5 +1,5 @@
 cabal-version:      2.4
-name:               plutus-hello-world
+name:               plutus-alwaysucceed
 version:            0.1.0.0
 
 -- A short (one-line) description of the package.
@@ -40,9 +40,9 @@ common lang
 library
   import:          lang
   exposed-modules:
-    Hello.Contract
-    Hello.Shared
-    Hello.Utils
+    Alwaysucceed.Contract
+    Alwaysucceed.Shared
+    Alwaysucceed.Utils
 
   hs-source-dirs:  src
   build-depends:
@@ -56,7 +56,7 @@ library
     , serialise
     , aeson
 
-executable plutus-starter-kit
+executable plutus-alwaysucceed-kit
   import:           lang
   main-is:          Main.hs
 
@@ -70,4 +70,4 @@ executable plutus-starter-kit
   ghc-options:      -Wall -Werror -threaded -rtsopts -with-rtsopts=-T
   build-depends:
     , optparse-applicative
-    , plutus-hello-world
+    , plutus-alwaysucceed

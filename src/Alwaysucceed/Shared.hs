@@ -4,7 +4,7 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 
-module Hello.Shared (wrap, validatorHash) where
+module Alwaysucceed.Shared (wrap, validatorHash) where
 
 import qualified Cardano.Api.Shelley as Shelly
 import Codec.Serialise (serialise)

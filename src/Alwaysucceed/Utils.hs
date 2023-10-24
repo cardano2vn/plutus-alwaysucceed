@@ -6,11 +6,11 @@
 
 -- {-# LANGUAGE NoImplicitPrelude #-}
 
-module Hello.Utils (writePlutusFile, encodePlutusData) where
+module Alwaysucceed.Utils (writePlutusFile, encodePlutusData) where
 
 import qualified Cardano.Api as Api
 -- Contracts
-import qualified Hello.Contract as Contract
+import qualified Alwaysucceed.Contract as Contract
 --
 import PlutusTx.Prelude (Either (..), Maybe (Nothing), ($), (++), (>>=))
 import System.FilePath ( FilePath )

@@ -30,7 +30,7 @@ newtype HelloRedeemer = HelloRedeemer Integer
 PlutusTx.unstableMakeIsData ''HelloRedeemer
 
 run :: HelloDatum -> HelloRedeemer -> PlutusV2.ScriptContext -> Bool
-run (HelloDatum datum) (HelloRedeemer redeemer) _ = redeemer < datum
+run (HelloDatum datum) (HelloRedeemer redeemer) _ = True
 
 -- Entry
 

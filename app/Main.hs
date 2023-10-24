@@ -1,7 +1,7 @@
 module Main where
 
 import Options.Applicative
-import qualified Hello.Utils as Utils
+import qualified Alwaysucceed.Utils as Utils
 
 type Opts = FilePath
 

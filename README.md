@@ -1,4 +1,4 @@
-# Plutus Hello Wrold
+# Plutus Alwaysucceed
 
 Đây là mẫu hợp đồng thông minh Plutus cơ bản. Mục tiêu là cung cấp sự thể hiện tối thiểu của một dự án Plutus được sử dụng làm điểm  để xây dựng các hợp đồng phức tạp hơn.
 
@@ -17,12 +17,12 @@
 
 ### Biên dịch Trình xác thực
 
-Mã nguồn của hợp đồng Plutus nằm trong thư mục `src/Hello`. `Contracts.hs` chứa logic trình xác thực tối giản và mã soạn sẵn được biên dịch thành Plutus-Tx dưới dạng UPLC có thể được gửi trên chuỗi.
+Mã nguồn của hợp đồng Plutus nằm trong thư mục `src/Alwaysucceed`. `Contracts.hs` chứa logic trình xác thực tối giản và mã soạn sẵn được biên dịch thành Plutus-Tx dưới dạng UPLC có thể được gửi trên chuỗi.
 
 Sử dụng lệnh cabal với mã nằm trong `Main.hs` và có thể được sử dụng để kích hoạt quá trình biên dịch này. Chạy lệnh sau từ Terminal:
 
 ```sh
-cabal run plutus-starter-kit -- assets/contract.plutus
+cabal run plutus-alwaysucceed-kit -- assets/contract.plutus
 ```
 
 > **Lưu ý**
@@ -89,7 +89,7 @@ Bây giờ chúng tôi đã có sẵn tập lệnh xác thực, chúng tôi sẽ
 
 Trình xác nhận rất cơ bản của chúng tôi có một nhiệm vụ đơn giản: đảm bảo rằng giá trị số nguyên trong Datum lớn hơn hoặc bằng giá trị số nguyên trong  (khá ngớ ngẩn và vô dụng).
 
-Dữ liệu của chúng tôi được định nghĩa là kiểu mới Haskell bao bọc một số nguyên duy nhất. `src/Hello/Contract.hs` chứa mã tương ứng:
+Dữ liệu của chúng tôi được định nghĩa là kiểu mới Haskell bao bọc một số nguyên duy nhất. `src/Alwaysucceed/Contract.hs` chứa mã tương ứng:
 
 ```haskell
 newtype HelloDatum = HelloDatum Integer
