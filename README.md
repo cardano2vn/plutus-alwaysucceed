@@ -83,19 +83,14 @@ Nếu bạn muốn truy vấn số dư địa chỉ ví của mình, bạn có t
 
 Ví của bạn, chúng tôi sẽ cần một số tiền để tương tác với hợp đồng. Bạn có thể sử dụng [faucet](https://docs.cardano.org/cardano-testnet/tools/faucet) tương ứng để nhận một số tADA.
 
-### Khóa tiền
+## Khóa tiền
 
 Bây giờ chúng tôi đã có sẵn tập lệnh xác thực, chúng tôi sẽ khóa tiền vào địa chỉ tập lệnh. Khóa tiền chỉ là một cách nói hoa mỹ rằng chúng tôi sẽ gửi một số tADA (trong trường hợp này) tới tập lệnh bằng cách gửi giao dịch đến địa chỉ tương ứng. Nó được gọi là "khóa" vì tiền chỉ có thể được lấy nếu tập lệnh trình xác thực cho phép.
 
-Trình xác nhận rất cơ bản của chúng tôi có một nhiệm vụ đơn giản: đảm bảo rằng giá trị số nguyên trong Datum lớn hơn hoặc bằng giá trị số nguyên trong  (khá ngớ ngẩn và vô dụng).
+Trình xác nhận này rất cơ bản, nó luôn luôn đúng như tên của nó "alwaysucceed" có nghĩa là bất kỳ ai cũng có thể sử dụng UTXO trên đia chỉ Hợp đồng thông minh này.
 
-Dữ liệu của chúng tôi được định nghĩa là kiểu mới Haskell bao bọc một số nguyên duy nhất. `src/Alwaysucceed/Contract.hs` chứa mã tương ứng:
-
-```haskell
-newtype HelloDatum = HelloDatum Integer
-```
-
-Khi khóa tiền, bên gửi là người kiểm soát dữ liệu và cần chỉ định hàm băm của giá trị. Để làm được điều đó, chúng ta cần một biểu diễn JSON của Datum được chuyển đến cardano-cli để thu được hàm băm. Tệp `assets/lock.datum` chứa một ví dụ về biểu diễn JSON cho một Datum chứa giá trị `42`:
+**Khi khóa tiền**
+Ví dụ ta có thể chuyển vào Datum một giá trị bất kỳ ở đây ta dùng số nguyên 42 và chuyển lên hàm băm của giá trị đó. Để làm được điều nay, chúng ta cần một biểu diễn JSON của Datum để cardano-cli chuyển nó thành hàm băm. Tệp `assets/lock.datum` chứa một ví dụ về biểu diễn JSON cho một Datum chứa giá trị `42`:
 
 ```json
 {"constructor":0,"fields":[{"int":42}]}
@@ -178,9 +173,9 @@ Sau vài giây (có thể lâu hơn tùy thuộc vào hoạt động của chu�
 b00...313     1        1230000 lovelace + TxOutDatumHash ScriptDataInBabbageEra "923...4ec"
 ```
 
-# Mở khóa tiền
+## Mở khóa tiền
 
-Để mở khóa Tài sản (tADA), chúng ta cần chuẩn bị một giao dịch sử dụng UTxO từ địa chỉ hợp đồng và bao gồm cả Redeemer và tuân thủ các giới hạn do trình xác thực của chúng ta xác định.
+Để mở khóa Tài sản (tADA), chúng ta cần chuẩn bị một giao dịch sử dụng UTxO từ địa chỉ hợp đồng và bao gồm cả `Redeemer` và tuân thủ các giới hạn do trình xác thực của chúng ta xác định. Với hợp đồng luôn luôn đúng này thì cho bất kỳ giá trị Redeemer nào vào cũng được.
 
 Truy vấn số dư hợp đồng một lần nữa, lấy TxHash và TxIx và lưu trữ nó bên trong biến `lockedtxin`.
 
