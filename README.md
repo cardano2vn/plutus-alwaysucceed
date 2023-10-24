@@ -104,7 +104,7 @@ Khi khóa tiền, bên gửi là người kiểm soát dữ liệu và cần ch�
 Từ bên trong Cardano Workspace của bạn, hãy mở một Terminal và thực hiện lệnh sau để tạo hàm băm cho dữ liệu có trong tệp `assets/lock.datum`. Kết quả của lệnh cardano-cli sẽ được lưu trữ trong biến `scriptdatumhash`.
 
 ```sh
-scriptdatumhash=$(cardano-cli giao dịch hash-script-data --script-data-file assets/lock.datum)
+scriptdatumhash=$(cardano-cli transaction hash-script-data --script-data-file assets/lock.datum)
 ```
 
 Giao dịch khóa cần tham chiếu đến UTxO trong ví Dev của bạn để được sử dụng làm nguồn cho số tiền mà chúng ta sẽ khóa trong tập lệnh. Vì bước này dành riêng cho trạng thái ví của bạn nên bạn sẽ cần chỉ định giá trị trong biến shell theo cách thủ công để bước tiếp theo thành công.
