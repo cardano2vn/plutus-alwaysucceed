@@ -12,25 +12,20 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 
 
-module Hello.Contract (validator, wrapped, serialized, hash, HelloDatum (..), HelloRedeemer (..)) where
+module Alwaysucceed.Contract (validator, wrapped, serialized, hash) where
 import Cardano.Api.Shelley (PlutusScript (PlutusScriptSerialised))
 import Codec.Serialise (serialise)
 import qualified Data.ByteString.Lazy as BSL
 import qualified Data.ByteString.Short as BSS
-import Hello.Shared (validatorHash, wrap)
+import Alwaysucceed.Shared (validatorHash, wrap)
 import qualified Plutus.V2.Ledger.Api as PlutusV2
 import PlutusTx
 import PlutusTx.Prelude
 import Cardano.Api
 
-newtype HelloDatum = HelloDatum Integer
-PlutusTx.unstableMakeIsData ''HelloDatum
 
-newtype HelloRedeemer = HelloRedeemer Integer
-PlutusTx.unstableMakeIsData ''HelloRedeemer
-
-run :: HelloDatum -> HelloRedeemer -> PlutusV2.ScriptContext -> Bool
-run (HelloDatum datum) (HelloRedeemer redeemer) _ = True
+run :: () -> () -> () -> Bool
+run _ _ _ = True
 
 -- Entry
 
