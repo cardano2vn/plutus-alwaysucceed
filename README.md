@@ -8,9 +8,15 @@
 
 **Nếu không muốn tự cài đặt các thành phần cần thiết**, bạn có thể sử dụng nền tảng [Demeter.run](https://demeter.run) để tạo môi trường đám mây có quyền truy cập vào cơ sở hạ tầng Cardano chung. Lệnh sau sẽ mở kho lưu trữ này trong một IDE VSCode dựa trên web, riêng tư với tất cả chuỗi công cụ Haskell cần thiết, quyền truy cập vào Node Cardano được chia sẻ và tệp nhị phân được cài đặt sẵn của `cardano-cli`.
 
-[![Mã trong Cardano Workspace](https://demeter.run/code/badge.svg)](https://demeter.run/code?repository=https://github.com/txpipe/plutus-starter -kit.git&template=plutus)
+[![Mã trong Cardano Workspace](https://demeter.run/code/badge.svg)](https://demeter.run/code?repository=https://demeter.run/code/?repository=https://github.com/cardano2vn/plutus-alwaysucceed.git&template=plutus)
 
-## Bắt đầu 
+Bạn cũng có thể git template này về máy tính của bạn 
+
+```sh
+git clone https://github.com/cardano2vn/plutus-alwaysucceed.git
+```
+
+## I. Bắt đầu 
 
 > **Lưu ý**
 > Hướng dẫn này giả định rằng bạn đang sử dụng Cardano Workspace như chi tiết ở trên.
@@ -91,7 +97,7 @@ Nếu bạn muốn truy vấn số dư địa chỉ ví của mình, bạn có t
 Ví của bạn, chúng tôi sẽ cần một số tiền để tương tác với hợp đồng. Bạn có thể sử dụng [faucet](https://docs.cardano.org/cardano-testnet/tools/faucet) tương ứng để nhận một số tADA.
 
 
-## I. Khóa tiền
+## II. Khóa tiền
 
 Bây giờ chúng tôi đã có sẵn tập lệnh xác thực, chúng tôi sẽ khóa tiền vào địa chỉ tập lệnh. Khóa tiền chỉ là một cách nói hoa mỹ rằng chúng tôi sẽ gửi một số tADA (trong trường hợp này) tới tập lệnh bằng cách gửi giao dịch đến địa chỉ tương ứng. Nó được gọi là "khóa" vì tiền chỉ có thể được lấy nếu tập lệnh trình xác thực cho phép.
 
@@ -131,7 +137,7 @@ $ ./scripts/dev-wallet-balance.sh
 $ locktxin=0939be18d8583bbdd7309b4cfefd419c8900df0f84142149066ec2755c94a322#0
 ```
 
-### 3. Downloan Tham số giao thức
+### 3. Download Tham số giao thức
 
 Chúng ta cũng cần truy xuất một số Tham số giao thức trước khi xây dựng giao dịch, để thực hiện điều đó, hãy thực thi trình trợ giúp tập lệnh sau:
 
@@ -141,7 +147,7 @@ $ ./scripts/download-params.sh
 
 ### 4. Xây dựng giao dịch khóa tài sản
 
-Bây giờ chúng ta cuối cùng đã sẵn sàng để xây dựng giao dịch khóa. Từ bên trong Cardano Workspace của bạn, hãy mở một Terminal và thực hiện lệnh sau để tạo tải trọng Tx chưa được ký.
+Bây giờ chúng ta cuối cùng đã sẵn sàng để xây dựng giao dịch khóa. Từ bên trong Cardano Workspace của bạn, hãy mở một Terminal và thực hiện lệnh sau để tạo lock.Tx chưa được ký.
 
 ```sh
 cardano-cli transaction build \
@@ -195,9 +201,9 @@ Sau vài giây (có thể lâu hơn tùy thuộc vào hoạt động của chu�
 b00...313     1        1230000 lovelace + TxOutDatumHash ScriptDataInBabbageEra "923...4ec"
 ```
 
-## II. Mở khóa tiền
+## III. Mở khóa tiền
 
-Để mở khóa Tài sản (tADA), chúng ta cần chuẩn bị một giao dịch sử dụng UTxO từ địa chỉ hợp đồng và bao gồm cả `Redeemer` và tuân thủ các giới hạn do trình xác thực của chúng ta xác định. Với hợp đồng luôn luôn đúng này thì cho bất kỳ giá trị Redeemer nào vào cũng được.
+Để mở khóa Tài sản (tADA), chúng ta cần chuẩn bị một giao dịch sử dụng UTxO từ địa chỉ hợp đồng và bao gồm cả `Redeemer` và tuân thủ các giới hạn do trình xác thực của chúng ta xác định. Với hợp đồng luôn luôn đúng này thì cho bất kỳ giá trị `Redeemer` nào vào cũng được.
 
 ### 1. Kiểm tra eUTxO trên Hợp đồng thông minh
 
